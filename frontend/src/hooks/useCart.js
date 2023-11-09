@@ -1,5 +1,4 @@
 import React, {createContext, useState, useContext} from "react";
-import { sample_foods } from "../data";
 import { useEffect } from "react";
 
 const CartContext = createContext(null);
