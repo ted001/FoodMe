@@ -1,4 +1,3 @@
-import { wait } from "@testing-library/user-event/dist/utils";
 import axios from "axios";
 
 export const getAll = async () => {
