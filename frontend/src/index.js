@@ -18,7 +18,7 @@ root.render(
         <CartProvider>
           <App />
           <ToastContainer
-            position='bottom-right'
+            position="bottom-right"
             autoClose={5000}
             hideProgressBar={false}
             newestOnTop={false}
@@ -27,7 +27,7 @@ root.render(
             pauseOnFocusLoss
             draggable
             pauseOnHover
-            theme='light'
+            theme="light"
           />
         </CartProvider>
       </AuthProvider>
