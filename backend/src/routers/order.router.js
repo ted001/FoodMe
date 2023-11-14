@@ -3,6 +3,7 @@ import handler from 'express-async-handler';
 import auth from '../middleware/auth.mid.js';
 import { BAD_REQUEST } from '../constants/httpStatus.js';
 import { OrderModel } from '../models/order.model.js';
+import { UserModel } from '../models/user.model.js';
 import { OrderStatus } from '../constants/orderStatus.js';
 
 const router = Router();
@@ -41,6 +42,28 @@ router.put(
     await order.save();
 
     res.send(order._id);
+  })
+);
+
+router.get(
+  '/track/:orderId',
+  handler(async (req, res) => {
+    const { orderId } = req.params;
+    const user = await UserModel.findById(req.user.id);
+
+    const filter = {
+      _id: orderId,
+    };
+
+    if (!user.isAdmin) {
+      filter.user = user._id;
+    }
+
+    const order = await OrderModel.findOne(filter);
+
+    if (!order) return res.send(UNAUTHORIZED);
+
+    return res.send(order);
   })
 );
 
