@@ -8,8 +8,13 @@ export const createOrder = async order => {
 };
 
 export const getNewOrderForCurrentUser = async () => {
-  const { data } = await axios.get('/api/orders/newOrderForCurrentUser');
-  return data;
+  try {
+    const { data } = await axios.get('/api/orders/newOrderForCurrentUser');
+    return data;
+  } catch (error) {
+    console.log("getNewOrderForCurrentUser 出错了")
+  }
+  
 };
 
 export const pay = async paymentId => {
