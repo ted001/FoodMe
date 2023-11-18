@@ -40,3 +40,8 @@
     padding: 0.8rem 5rem;
     border-radius: 1rem;
   }
+
+  .img > img {
+    height: 50%;
+    width: 250px;
+  }

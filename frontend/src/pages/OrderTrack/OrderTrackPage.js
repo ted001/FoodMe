@@ -7,6 +7,7 @@ import DateTime from '../../components/DateTime/DateTime';
 import OrderItemsList from '../../components/OrderItemsList/OrderItemsList';
 import Title from '../../components/Title/Title';
 import Map from '../../components/Map/Map';
+import delivery from '../../assets/delivery.png'
 
 export default function OrderTrackPage() {
   const { orderId } = useParams();
@@ -58,8 +59,13 @@ export default function OrderTrackPage() {
         <div>
           <Title title="Your Location" fontSize="1.6rem" />
           <Map location={order.addressLatLng} readonly={true} />
+          <div className={classes.img}>
+            <img src={delivery} alt="" />
+          </div>
+          <div className="text">
+            <h2>Safe Delivery <span>@</span> your doors</h2>
+          </div>
         </div>
-
         {order.status === 'NEW' && (
           <div className={classes.payment}>
             <Link to="/payment">Go To Payment</Link>

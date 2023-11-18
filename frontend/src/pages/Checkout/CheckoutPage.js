@@ -12,11 +12,15 @@ import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import OrderItemsList from '../../components/OrderItemsList/OrderItemsList';
 import Map from '../../components/Map/Map';
+import { useLocation } from "react-router-dom";
+
 export default function CheckoutPage() {
   const { cart } = useCart();
   const { user } = useAuth();
   const navigate = useNavigate();
   const [order, setOrder] = useState({ ...cart });
+  const location = useLocation();
+  const path = location.pathname;
 
   const {
     register,
@@ -36,6 +40,15 @@ export default function CheckoutPage() {
 
   return (
     <>
+      <div className="progress">
+        <div className="status">
+          <p className={` ${path === "/checkout" && "active"}`}>Order</p>
+          <div className="divider"></div>
+          <p className={` ${path === "/payment" && "active"}`}>Payment</p>
+          <div className="divider"></div>
+          <p className={` ${path === "/track" && "active"}`}>Shipping</p>
+        </div>
+      </div>
       <form onSubmit={handleSubmit(submit)} className={classes.container}>
         <div className={classes.content}>
           <Title title="Order Form" fontSize="1.6rem" />
