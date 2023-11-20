@@ -6,6 +6,7 @@ import classes from './thumbnails.module.css';
 export default function Thumbnails({ foods }) {
   return (
     <ul className={classes.list}>
+      {/* {console.log(foods)} */}
       {foods.map(food => (
         <li key={food.id}>
           <Link to={`/food/${food.id}`}>
