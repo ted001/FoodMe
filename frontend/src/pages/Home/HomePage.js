@@ -5,6 +5,7 @@ import { useParams, tag } from 'react-router-dom';
 import Search from '../../components/Search/Search';
 import Tags from '../../components/Tags/Tags';
 import NotFound from '../../components/NotFound/NotFound';
+import styles from './homePage.module.css';
 
 const initialState = { foods: [], tags: []};
 
@@ -36,10 +37,12 @@ export default function HomePage() {
 
   return (
     <>
-      <Search />
-      <Tags tags={tags}/>
-      {foods.length === 0 && <NotFound linkText="Reset Search" />}
-      <Thumbnails foods={foods} />
+      <div className={styles.homePage}>
+        <Search />
+        <Tags tags={tags}/>
+        {foods.length === 0 && <NotFound linkText="Reset Search" />}
+        <Thumbnails foods={foods} />
+      </div>
     </>
   );
 }

@@ -1,0 +1,16 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+.homePage {
+    background-image: url(../../../public/bgIMG.jpg);
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-size: cover; /* Ensure the background image covers the entire container */
+    background-position: center;
+    background-attachment: fixed;
+    user-select: none;
+}

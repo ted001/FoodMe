@@ -7,6 +7,7 @@
     padding: 0;
   }
   
+
   .list li a {
     height: 22.5rem;
     width: 20rem;
@@ -17,6 +18,8 @@
     flex-direction: column;
     overflow: hidden;
     color: #e72929;
+    background-color: rgb(207, 209, 208, 0.7);
+
   }
   
   .image {
