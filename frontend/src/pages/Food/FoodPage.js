@@ -25,8 +25,10 @@ export default function FoodPage() {
     }, [id]);
     return (
         <>
+        <div className={classes.foodPage}>
             {!food? (<NotFound message="Food Not Found" linkText="Back To HomePage" />) : (
                 <div className={classes.container}>
+                    
                     <img 
                         className={classes.image}
                         src={`${food.imageUrl}`}
@@ -73,6 +75,7 @@ export default function FoodPage() {
                     </div>
                 </div>
             )}
+            </div>
         </>
     );
 }

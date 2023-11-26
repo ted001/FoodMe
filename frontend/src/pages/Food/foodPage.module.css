@@ -1,4 +1,10 @@
-.container {
+  .foodPage {
+  background: linear-gradient(to right, rgb(3, 169, 246, 1), rgb(3, 169, 246, 0.2));
+  
+  min-height: 1vh;
+  }
+
+  .container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,8 +21,18 @@
     border-radius: 3rem;
     flex: 1 0;
     object-fit: cover;
-    height: 35rem;
+    height: 25rem;
     margin: 1rem;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+      animation: borderAnimation 1s infinite;
+    }
+    border: 5px solid transparent;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
   }
   
   .details {
@@ -56,11 +72,12 @@
   }
   
   .origins > span {
-    padding: 0.5rem;
+    padding: 0.2rem 0.4rem;
     font-size: 1.2rem;
     margin: 0.5rem 0.5rem 0 0;
     border-radius: 2rem;
-    background-color: aliceblue;
+    background: linear-gradient(to right, #272727, #888a8a);
+    color: white;
   }
   
   .cook_time {
@@ -76,17 +93,14 @@
   .price {
     font-size: 1.8rem;
     margin: 2rem 2rem 2rem 0;
-    color: green;
-  }
-  
-  .price::before {
-    content: 'Price: ';
-    color: darkgrey;
+    color: rgb(11, 47, 193);
+    font-weight: bold;
   }
   
   .container button {
     color: white;
-    background-color: #e72929;
+    font-family: Quicksand, sans-serif;
+    background: linear-gradient(to right, #0f3bb3, #369fe0);
     border: none;
     font-size: 1.2rem;
     padding: 1rem;
@@ -98,3 +112,8 @@
     opacity: 0.9;
     cursor: pointer;
   }
+
+
+
+
+
