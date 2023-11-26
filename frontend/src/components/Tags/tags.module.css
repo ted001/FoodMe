@@ -9,5 +9,6 @@
     margin: 0.2rem 0.15rem;
     border-radius: 10rem;
     font-weight: 600;
-    color: blue;
+    color: white;
+    background: linear-gradient(to right, #71e588,  #0461e2);
 }
