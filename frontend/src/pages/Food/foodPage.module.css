@@ -1,7 +1,6 @@
   .foodPage {
   background: linear-gradient(to right, rgb(3, 169, 246, 1), rgb(3, 169, 246, 0.2));
-  
-  min-height: 1vh;
+  min-height: 100vh;
   }
 
   .container {
@@ -9,7 +8,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 3rem;
+    margin: rem;
   }
   
   .container > * {
