@@ -98,11 +98,11 @@
     align-items: center;
     flex: 1 3;
     height: 20rem;
-    border: 1px solid #ffbbbb;
+    border: 3px solid rgb(142, 141, 141);
     border-radius: 1rem;
     padding: 0.5rem;
-    margin: 0.5rem;
-    
+    margin-top: 3rem;
+    background-color: rgba(185, 185, 185, 0.843);
   }
   
   .checkout > div {
@@ -117,16 +117,21 @@
   
   .checkout .foods_count {
     margin-bottom: 1.5rem;
+    color: #0f3bb3;
+  }
+
+  .checkout .total_price {
+    color: #0f3bb3;
   }
   
   .checkout .foods_count::before {
     content: 'Count: ';
-    color: grey;
+    color: black;
   }
   
   .checkout .total_price::before {
     content: 'Price: ';
-    color: grey;
+    color: black;
   }
   
   .checkout a {
