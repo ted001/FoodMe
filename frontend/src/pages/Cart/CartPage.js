@@ -11,7 +11,8 @@ export default function CartPage() {
 
     return (
         <>
-          <Title title="Cart Page" margin="1.5rem 0 0 2.5rem" />
+        <div className={classes.cartPage}>
+          {/* <Title title="Cart Page" margin="0 0 0 2.5rem" /> */}
 
           {cart.items.length === 0? (<NotFound message="Cart Page is Empty!" />) : (
             <div className={classes.container}>
@@ -26,7 +27,7 @@ export default function CartPage() {
                                 />
                             </div>
                             <div>
-                                <Link to={`/food/${item.food.id}`}> {item.food.name} </Link>
+                                <Link to={`/food/${item.food.id}`} className={classes.itemName}> {item.food.name} </Link>
                                 
                             </div>
                             <div>
@@ -47,7 +48,7 @@ export default function CartPage() {
                             </div>
 
                             <div>
-                                <Price price={item.price} />
+                                <Price price={item.price} className={classes.price}/>
                             </div>
 
                             <div>
@@ -73,6 +74,7 @@ export default function CartPage() {
                 </div>
             </div>
             )}
+            </div>
             </>
             );
         }
