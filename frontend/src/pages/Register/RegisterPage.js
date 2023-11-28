@@ -32,75 +32,77 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className={classes.container}>
-      <div className={classes.details}>
-        <Title title="Register" />
-        <form onSubmit={handleSubmit(submit)} noValidate>
-          <Input
-            type="text"
-            label="Name"
-            {...register('name', {
-              required: true,
-              minLength: 5,
-            })}
-            error={errors.name}
-          />
+    <div className={classes.registerPage}>
+      <div className={classes.container}>
+        <div className={classes.details}>
+          <Title title="Register" />
+          <form onSubmit={handleSubmit(submit)} noValidate>
+            <Input
+              type="text"
+              label="Name"
+              {...register('name', {
+                required: true,
+                minLength: 5,
+              })}
+              error={errors.name}
+            />
 
-          <Input
-            type="email"
-            label="Email"
-            {...register('email', {
-              required: true,
-              pattern: {
-                value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,63}$/i,
-                message: 'Email Is Not Valid',
-              },
-            })}
-            error={errors.email}
-          />
+            <Input
+              type="email"
+              label="Email"
+              {...register('email', {
+                required: true,
+                pattern: {
+                  value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,63}$/i,
+                  message: 'Email Is Not Valid',
+                },
+              })}
+              error={errors.email}
+            />
 
-          <Input
-            type="password"
-            label="Password"
-            {...register('password', {
-              required: true,
-              minLength: 5,
-            })}
-            error={errors.password}
-          />
+            <Input
+              type="password"
+              label="Password"
+              {...register('password', {
+                required: true,
+                minLength: 5,
+              })}
+              error={errors.password}
+            />
 
-          <Input
-            type="password"
-            label="Confirm Password"
-            {...register('confirmPassword', {
-              required: true,
-              validate: value =>
-                value !== getValues('password')
-                  ? 'Passwords Do No Match'
-                  : true,
-            })}
-            error={errors.confirmPassword}
-          />
+            <Input
+              type="password"
+              label="Confirm Password"
+              {...register('confirmPassword', {
+                required: true,
+                validate: value =>
+                  value !== getValues('password')
+                    ? 'Passwords Do No Match'
+                    : true,
+              })}
+              error={errors.confirmPassword}
+            />
 
-          <Input
-            type="text"
-            label="Address"
-            {...register('address', {
-              required: true,
-              minLength: 10,
-            })}
-            error={errors.address}
-          />
+            <Input
+              type="text"
+              label="Address"
+              {...register('address', {
+                required: true,
+                minLength: 10,
+              })}
+              error={errors.address}
+            />
 
-          <Button type="submit" text="Register" />
+            <Button type="submit" text="Register" />
 
-          <div className={classes.login}>
-            Already a user? &nbsp;
-            <Link to={`/login${returnUrl ? '?returnUrl=' + returnUrl : ''}`}>
-              Login here
-            </Link>
-          </div>
-        </form>
+            <div className={classes.login}>
+              Already a user? &nbsp;
+              <Link to={`/login${returnUrl ? '?returnUrl=' + returnUrl : ''}`}>
+                Login here
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
