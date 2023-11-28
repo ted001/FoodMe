@@ -21,35 +21,37 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className={classes.container}>
-      <div className={classes.details}>
-        <Title title="Update Profile" />
-        <form onSubmit={handleSubmit(submit)}>
-          <Input
-            defaultValue={user.name}
-            type="text"
-            label="Name"
-            {...register('name', {
-              required: true,
-              minLength: 5,
-            })}
-            error={errors.name}
-          />
-          <Input
-            defaultValue={user.address}
-            type="text"
-            label="Address"
-            {...register('address', {
-              required: true,
-              minLength: 10,
-            })}
-            error={errors.address}
-          />
+    <div className={classes.profilePage}>
+      <div className={classes.container}>
+        <div className={classes.details}>
+          <Title title="Update Profile" />
+          <form onSubmit={handleSubmit(submit)}>
+            <Input
+              defaultValue={user.name}
+              type="text"
+              label="Name"
+              {...register('name', {
+                required: true,
+                minLength: 5,
+              })}
+              error={errors.name}
+            />
+            <Input
+              defaultValue={user.address}
+              type="text"
+              label="Address"
+              {...register('address', {
+                required: true,
+                minLength: 10,
+              })}
+              error={errors.address}
+            />
 
-          <Button type="submit" text="Update" backgroundColor="#009e84" />
-        </form>
+            <Button type="submit" text="Update" backgroundColor="#5dadec" color={"white"}/>
+          </form>
 
-        <ChangePassword />
+          <ChangePassword />
+        </div>
       </div>
     </div>
   );

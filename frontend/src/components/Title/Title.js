@@ -1,5 +1,12 @@
 import React from 'react';
 
 export default function Title({ title, fontSize, margin }) {
-  return <h1 style={{ fontSize, margin, color: '#616161' }}>{title}</h1>;
+  const titleStyle = {
+    fontSize,
+    margin,
+    color: 'black',
+    fontWeight: 'bold', // Add this line to make the text bold
+  };
+
+  return <h1 style={titleStyle}>{title}</h1>;
 }
