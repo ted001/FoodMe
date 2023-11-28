@@ -29,41 +29,43 @@ export default function LoginPage() {
   };
 
   return (
-    <div className={classes.container}>
-      <div className={classes.details}>
-        <Title title="Login" />
-        <form onSubmit={handleSubmit(submit)} noValidate>
-          <Input
-            type="email"
-            label="Email"
-            {...register('email', {
-              required: true,
-              pattern: {
-                value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,63}$/i,
-                message: 'Email Is Not Valid',
-              },
-            })}
-            error={errors.email}
-          />
+    <div className={classes.loginPage}>
+      <div className={classes.container}>
+        <div className={classes.details}>
+          <Title title="Login" />
+          <form onSubmit={handleSubmit(submit)} noValidate>
+            <Input
+              type="email"
+              label="Email"
+              {...register('email', {
+                required: true,
+                pattern: {
+                  value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,63}$/i,
+                  message: 'Email Is Not Valid',
+                },
+              })}
+              error={errors.email}
+            />
 
-          <Input
-            type="password"
-            label="Password"
-            {...register('password', {
-              required: true,
-            })}
-            error={errors.password}
-          />
+            <Input
+              type="password"
+              label="Password"
+              {...register('password', {
+                required: true,
+              })}
+              error={errors.password}
+            />
 
-          <Button type="submit" text="Login" />
+            <Button type="submit" text="Login" backgroundColor={"#5dadec"}/>
 
-          <div className={classes.register}>
-            New user? &nbsp;
-            <Link to={`/register${returnUrl ? '?returnUrl=' + returnUrl : ''}`}>
-              Register here
-            </Link>
-          </div>
-        </form>
+            <div className={classes.register}>
+              New user? &nbsp;
+              <Link to={`/register${returnUrl ? '?returnUrl=' + returnUrl : ''}`}>
+                Register here
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
