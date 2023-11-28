@@ -93,7 +93,7 @@ export default function RegisterPage() {
               error={errors.address}
             />
 
-            <Button type="submit" text="Register" />
+            <Button type="submit" text="Register" backgroundColor={"#5dadec"}/>
 
             <div className={classes.login}>
               Already a user? &nbsp;
