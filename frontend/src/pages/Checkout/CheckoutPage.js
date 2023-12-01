@@ -40,6 +40,7 @@ export default function CheckoutPage() {
 
   return (
     <>
+      <div className={classes.checkoutPage}>
       <div className="progress">
         <div className="status">
           <p className={` ${path === "/checkout" && "active"}`}>Order</p>
@@ -90,6 +91,7 @@ export default function CheckoutPage() {
           </div>
         </div>
       </form>
+      </div>
     </>
   );
 }

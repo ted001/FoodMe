@@ -20,6 +20,7 @@ export default function PaymentPage() {
 
   return (
     <>
+      <div className={classes.paymentPage}>
       <div className="progress">
         <div className="status">
           <p className={` ${path === "/checkout" && "active"}`}>Order</p>
@@ -55,6 +56,7 @@ export default function PaymentPage() {
             <PaypalButtons order={order} />
           </div>
         </div>
+      </div>
       </div>
     </>
   );
