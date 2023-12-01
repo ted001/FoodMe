@@ -25,6 +25,7 @@ export default function OrderTrackPage() {
 
   return (
     order && (
+      <div className={classes.orderTrackPage}>
       <div className={classes.container}>
         <div className={classes.content}>
           <h1>Order #{order.id}</h1>
@@ -71,6 +72,7 @@ export default function OrderTrackPage() {
             <Link to="/payment">Go To Payment</Link>
           </div>
         )}
+      </div>
       </div>
     )
   );
