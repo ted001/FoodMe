@@ -10,71 +10,71 @@ import NotFound from "../../components/NotFound/NotFound";
 
 export default function FoodPage() {
 
-    const [food, setFood] = useState({});
+    const [currentFood, setCurrentFood] = useState({});
     const {id} = useParams();
     const {addToCart} = useCart();
     const navigate = useNavigate();
 
-    const handleAddToCart = () => {
-        addToCart(food);
+    useEffect(() => {
+        getById(id).then(foodData => setCurrentFood(foodData));
+    }, [id]);
+
+    const onAddToCart = () => {
+        addToCart(currentFood);
         navigate('/cart');
     }
 
-    useEffect(() => {
-        getById(id).then(setFood);
-    }, [id]);
+    if (!currentFood) {
+        return <NotFound message="Food Not Found" linkText="Back To HomePage" />;
+    }
+    
     return (
         <>
         <div className={classes.foodPage}>
-            {!food? (<NotFound message="Food Not Found" linkText="Back To HomePage" />) : (
-                <div className={classes.container}>
-                    
-                    <img 
-                        className={classes.image}
-                        src={`${food.imageUrl}`}
-                        alt={food.name}
-                    />
-                    <div className={classes.details}>
-                        <div className={classes.header}>
-                            <span className={classes.name}> {food.name} </span>
-                            <span className={`${classes.favorite} ${food.favorite? '': classes.not}`}>
-                                ♥
-                            </span>
+            
+            <div className={classes.container}>
+                
+                <img 
+                    className={classes.image}
+                    src={`${currentFood.imageUrl}`}
+                    alt={currentFood.name}
+                />
+                <div className={classes.details}>
+                    <div className={classes.header}>
+                        <span className={classes.name}> {currentFood.name} </span>
+                        <span className={`${classes.favorite} ${currentFood.favorite? '': classes.not}`}>
+                            ♥
+                        </span>
+                    </div>
+                        <div className={classes.rating}>
+                            <StarRating stars={currentFood.stars} size={25}/>
                         </div>
-                            <div className={classes.rating}>
-                                <StarRating stars={food.stars} size={25}/>
+
+                        <div className={classes.origins}>
+                            {
+                                currentFood.origins?.map(origin => (
+                                <span key={origin}>{origin}</span>
+                            ))}
                             </div>
 
-                            <div className={classes.origins}>
-                                {
-                                    food.origins?.map(origin => (
-                                    <span key={origin}>{origin}</span>
-                                ))}
-                                </div>
+                            {currentFood.tags && (
+                                <Tags tags={currentFood.tags.map(tag => ({ name: tag }))} forFoodPage />
+                            )}
 
-                                <div className={classes.tags}>
-                                    {
-                                        food.tags && (
-                                            <Tags tags={food.tags.map(tag => ({ name: tag }))}
-                                            forFoodPage={true}
-                                            />
-                                )}
-                                </div>
+                            <div className={classes.cook_time}>
+                                <span>
+                                    Time to cook about <strong>{currentFood.cookTime}</strong> minutes
+                                </span>
+                            </div>
 
-                                <div className={classes.cook_time}>
-                                    <span>
-                                        Time to cook about <strong>{food.cookTime}</strong> minutes
-                                    </span>
-                                </div>
+                            <div className={classes.price}>
+                                <Price price={currentFood.price} />
+                            </div>
 
-                                <div className={classes.price}>
-                                    <Price price={food.price} />
-                                </div>
-
-                                <button onClick={handleAddToCart}>Add To Cart</button>
-                    </div>
+                            <button onClick={onAddToCart}>Add To Cart</button>
                 </div>
-            )}
+            </div>
+            
             </div>
         </>
     );
